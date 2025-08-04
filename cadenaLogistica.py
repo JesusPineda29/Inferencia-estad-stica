@@ -2,7 +2,6 @@ import numpy as np
 import scipy.stats as stats
 
 # SIMULACIÓN Y ANÁLISIS
-# Parámetros modificados
 lambda_param = 14  # Nueva tasa esperada (cambio por el sistema automatizado)
 tamaño_muestra = 60
 np.random.seed(42)  # Para reproducibilidad
@@ -22,9 +21,6 @@ def intervalo_confianza_poisson(muestra, confianza=0.95):
 
 ic_logistica = intervalo_confianza_poisson(muestra_logistica)
 print(f"Intervalo de confianza: [{ic_logistica[0]:.2f}, {ic_logistica[1]:.2f}]")
-
-# INTERPRETACIÓN DEL INTERVALO DE CONFIANZA
-print(f"Con un 95% de confianza, la tasa real de pedidos por hora se encuentra entre {ic_logistica[0]:.2f} y {ic_logistica[1]:.2f} pedidos.")
 
 # PARTE 2: CONTRASTE DE HIPÓTESIS
 def prueba_hipotesis_poisson(muestra, lambda_0, alpha=0.05):
