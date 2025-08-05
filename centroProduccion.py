@@ -39,3 +39,16 @@ rechazo, p_valor = prueba_hipotesis_binomial(muestra_produccion, n_piezas, p_0)
 
 print(f"Valor p: {p_valor:.6f}")
 print(f"¿Se rechaza H0? {rechazo}")
+
+# DECISIÓN EMPRESARIAL
+if rechazo:
+    p_actual = np.mean(muestra_produccion) / n_piezas
+    if p_actual < p_0:
+        print("DECISIÓN: La nueva maquinaria SÍ ha MEJORADO significativamente la calidad.")
+        print("¡Felicidades! Tienen menos defectos que antes.")
+    else:
+        print("DECISIÓN: La nueva maquinaria ha EMPEORADO significativamente la calidad.")
+        print("Necesitan ajustar procesos urgentemente.")
+else:
+    print("DECISIÓN: No hay evidencia suficiente de cambio en la calidad.")
+    print("La calidad se mantiene estable, pueden continuar con la operación normal.")
